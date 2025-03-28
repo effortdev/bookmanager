@@ -4,6 +4,8 @@ import com.jpa.bookmanager.domain.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.List;
 
@@ -15,9 +17,9 @@ class UserRepositoryTest {
 
     @Test
     void crud(){
-        List<User> users = userRepository.findAll();
+        Page<User> users = userRepository.findAll(PageRequest.of(1,3));
 
-        users.forEach(System.out::println);
+        System.out.println(users);
 
     }
 
