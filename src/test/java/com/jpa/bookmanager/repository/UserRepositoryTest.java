@@ -23,4 +23,9 @@ class UserRepositoryTest {
 
     }
 
+    @Test
+    void select(){
+        System.out.println(userRepository.findByName("martin"));
+    }
+
 }
