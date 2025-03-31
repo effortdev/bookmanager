@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
@@ -26,6 +27,12 @@ class UserRepositoryTest {
     @Test
     void select(){
         System.out.println(userRepository.findByName("martin"));
+    }
+
+    @Test
+    void pagingAndSortingTest(){
+        System.out.println("finByNameWithPaging : "+ userRepository.findByName("martin",
+                PageRequest.of(1,1, Sort.by(Sort.Order.desc("id")))).getContent());
     }
 
 }
